@@ -6,13 +6,13 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 18:43:39 by adben-mc          #+#    #+#             */
-/*   Updated: 2021/12/06 18:48:32 by adben-mc         ###   ########.fr       */
+/*   Updated: 2021/12/08 00:45:28 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+int ft_strchr(const char *s, int c)
 {
 	unsigned int	i;
 
@@ -23,8 +23,8 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)(s + i));
 	}
 	if ((char)c == s[i])
-		return ((char *)(s + i));
-	return (NULL);
+		return (i);
+	return (0);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
