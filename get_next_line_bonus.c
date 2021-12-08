@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:14:26 by adben-mc          #+#    #+#             */
-/*   Updated: 2021/12/08 18:36:53 by adben-mc         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:52:15 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	*find_rest_clear(char	*save)
 
 char	*get_next_line(int fd)
 {
-	static char	*save;
+	static char	*save[1024];
 	char		*str;
 
 	if (fd < 0 || read(fd, NULL, 0) == -1 || BUFFER_SIZE <= 0)
