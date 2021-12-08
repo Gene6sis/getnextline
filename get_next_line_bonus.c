@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:14:26 by adben-mc          #+#    #+#             */
-/*   Updated: 2021/12/08 04:06:58 by adben-mc         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:36:53 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/*
-Fonction qui met Buffer size dans ma chaine de 
-caractere jusqu'a qu'il trouve 
-un \n ou la fin de la phrase.
-Et me retourne cette chaine de caractere.
-*/
 
 char	*ft_fill_str(int fd, char *str)
 {
@@ -37,11 +30,6 @@ char	*ft_fill_str(int fd, char *str)
 	free(temp);
 	return (str);
 }
-
-/*
-Fonction qui return ce qui est avant le \n et alloue dans la variable 
-static le reste de la chaine de caractere
-*/
 
 char	*find_line(char *save)
 {
@@ -71,10 +59,6 @@ char	*find_line(char *save)
 	return (str);
 }
 
-/*
-Fonction qui va clear une chaine de caractere .
-*/
-
 char	*find_rest_clear(char	*save)
 {
 	char	*str;
@@ -82,7 +66,7 @@ char	*find_rest_clear(char	*save)
 	int		x;
 
 	i = 0;
-	while (save[i] != '\n' && ft_strchr(save, '\n'))
+	while (save[i] && save[i] != '\n')
 		i++;
 	if (!save[i])
 	{
@@ -92,8 +76,7 @@ char	*find_rest_clear(char	*save)
 	str = malloc(sizeof(char) * (ft_strlen(save) - i + 1));
 	if (!str)
 		return (NULL);
-	if (ft_strchr(save, '\n'))
-		i++;
+	i++;
 	x = 0;
 	while (save[i])
 		str[x++] = save[i++];

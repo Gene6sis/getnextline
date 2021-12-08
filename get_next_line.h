@@ -6,7 +6,7 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:19:33 by adben-mc          #+#    #+#             */
-/*   Updated: 2021/12/08 04:08:37 by adben-mc         ###   ########.fr       */
+/*   Updated: 2021/12/08 18:20:42 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-///a enlever hehe
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
