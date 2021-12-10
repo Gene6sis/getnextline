@@ -6,11 +6,11 @@
 /*   By: adben-mc <adben-mc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:14:26 by adben-mc          #+#    #+#             */
-/*   Updated: 2021/12/08 18:52:15 by adben-mc         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:01:45 by adben-mc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_fill_str(int fd, char *str)
 {
@@ -23,6 +23,11 @@ char	*ft_fill_str(int fd, char *str)
 	statut = 1;
 	while (!ft_strchr(str, '\n') && statut)
 	{
+		if (statut < 0)
+		{
+			free(temp);
+			return (NULL);
+		}
 		statut = read(fd, temp, BUFFER_SIZE);
 		temp[statut] = '\0';
 		str = ft_strjoin(str, temp);
@@ -92,10 +97,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || read(fd, NULL, 0) == -1 || BUFFER_SIZE <= 0)
 		return (NULL);
-	save = ft_fill_str(fd, save);
-	if (!save)
+	save[fd] = ft_fill_str(fd, save[fd]);
+	if (!save[fd])
 		return (NULL);
-	str = find_line(save);
-	save = find_rest_clear(save);
+	str = find_line(save[fd]);
+	save[fd] = find_rest_clear(save[fd]);
 	return (str);
 }
